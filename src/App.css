@@ -1,0 +1,133 @@
+#root {
+  /* max-width: 1280px; */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: black;
+  background-image: url('https://wallpapersok.com/images/high/iphone-theme-display-japanese-anime-city-at0oxdr2hsqsft8p.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title Styling */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: rgb(179, 9, 51);
+}
+
+.card {
+  width: 40vw;
+  height: 40vh;
+  margin: 2em auto;
+  /* font-weight: 700; */
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Category-Based Colors */
+.card-inner.geography {
+  background: linear-gradient(45deg, #2a9d8f, #264653); /* Teal-green */
+  color: white;
+}
+
+.card-inner.science {
+  background: linear-gradient(45deg, #3a86ff, #8338ec); /* Blue-Purple */
+  color: white;
+}
+
+.card-inner.misc {
+  background: linear-gradient(45deg, #f4a261, #e9c46a); /* Yellow-Brown */
+  color: black;
+}
+
+/* Image Styling */
+.card-image {
+  max-width: 80%;
+  max-height: 70%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Add hover effect - smooth scaling and shadow */
+.card:hover {
+   /* Slight zoom effect */
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3); /* Shadow for depth */
+}
+
+.card .front, .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* Front and Back Colors */
+.card .front {
+  /* background: linear-gradient(45deg, #ffcc00, #ff6600); */
+  color: black;
+}
+
+.card .back {
+  /* background: linear-gradient(45deg, #00ccff, #0066ff); */
+  color: black;
+  transform: rotateX(180deg);
+}
+
+
+.card-inner {
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  background: rgba(248, 162, 49, 0.7); /* Semi-transparent card */
+}
+
+.card.flipped .card-inner {
+  transform: rotateX(180deg);
+}
+
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #333, #555);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
