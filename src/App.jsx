@@ -4,36 +4,45 @@ import './App.css'
 
 function App() {
   const [cardIndex, setIndex] = useState(0);
+  const [userGuess, setUserGuess] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [isFlipped, setIsFlipped] = useState(false);
+
   let card =  cardList[cardIndex];
 
-  const getRandomIndex = () => {
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * cardList.length);
-    } while (randomIndex === cardIndex); // Ensure different card
-    return randomIndex;
-  };
-
-  const handlePrevArrow = () => {
-    setIndex(getRandomIndex());
-  
-    }
-  
-  const handleNextArrow = () => {
-    // Set to front without animation
-    setIsFlipped(false);
-    
-    // Change card after a slight delay to avoid animation effect on transition
-    setTimeout(() => {
-      setIndex(getRandomIndex());
-    }, 10); // 10ms delay for smooth transition without seeing the back
-  }
-
-  const [isFlipped, setIsFlipped] = useState(false);
+  // const getRandomIndex = () => {
+  //   let randomIndex;
+  //   do {
+  //     randomIndex = Math.floor(Math.random() * cardList.length);
+  //   } while (randomIndex === cardIndex); // Ensure different card
+  //   return randomIndex;
+  // };
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
   }
+
+  const handleGuessSubmit = () => {
+    if (userGuess.trim().toLowerCase() === card.answer.toLowerCase()) {
+      setFeedback('Correct!');
+    } else {
+      setFeedback('Incorrect!');
+    }
+  }
+
+  const handlePrevArrow = () => {
+    setIsFlipped(false);
+    setIndex(cardIndex - 1 < 0 ? cardIndex : cardIndex - 1);
+    }
+  
+  const handleNextArrow = () => {
+    setIsFlipped(false);
+    setIndex(cardIndex + 1 < cardList.length ? cardIndex + 1 : cardIndex);
+  }
+
+  // const handleShuffle = () => {
+  //   setIndex(getRandomIndex());
+  // }
 
   return (
     <>
@@ -52,10 +61,22 @@ function App() {
             </div>
           </div>
         </div>
-        <button onClick={handlePrevArrow}>←</button>
-        <button onClick={handleNextArrow}>→</button>
+        <div className="guessing">
+          <input
+            type="text"
+            value={userGuess}
+            onChange={(e) => setUserGuess(e.target.value)}
+            placeholder="Enter your guess"
+          />
+          <button onClick={handleGuessSubmit}>Submit</button>
+        </div>
+        <p>{feedback}</p>
+        <div>
+          <button onClick={handlePrevArrow}>←</button>
+          <button onClick={handleNextArrow}>→</button>
+          {/* <button onClick={handleShuffle}>Shuffle Cards</button> */}
+        </div>  
       </div>
-
     </>
   )
 }
