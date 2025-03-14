@@ -1,6 +1,6 @@
 #root {
   /* max-width: 1280px; */
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -9,6 +9,7 @@
   background-image: url('https://wallpapersok.com/images/high/iphone-theme-display-japanese-anime-city-at0oxdr2hsqsft8p.webp');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
