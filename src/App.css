@@ -27,6 +27,10 @@ h2 {
   color: rgb(179, 9, 51);
 }
 
+p {
+  font-weight: bold;
+}
+
 .card {
   width: 40vw;
   height: 40vh;
@@ -119,13 +123,13 @@ input {
 
 /* Button styling */
 button {
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   margin: 10px;
   font-size: 1.2rem;
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(45deg, #333, #555);
+  /* background: linear-gradient(45deg, #333, #555); */
   color: white;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background 0.3s;
@@ -135,4 +139,9 @@ button {
 button:hover {
   background-color: #555;
   transform: scale(1.1);
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
 }
