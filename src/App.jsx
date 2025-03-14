@@ -108,6 +108,8 @@ function App() {
     setUserGuess('');
     setFeedback('');
     setMasteredCards([]);
+    setCurrentStreak(0);
+    setLongestStreak(0);
   }
 
   return (
@@ -140,6 +142,7 @@ function App() {
                 value={userGuess}
                 onChange={(e) => setUserGuess(e.target.value)}
                 placeholder="Enter your guess"
+                className={feedback.includes('✅') ? 'correct' : feedback.includes('❌') ? 'incorrect' : ''}
               />
               <button onClick={handleGuessSubmit} disabled={isFlipped}>Submit</button>
             </div>
@@ -156,8 +159,8 @@ function App() {
           </>
         ) : (
           <div>
-            <p>🎉 You've mastered all the cards! Shuffle to restart.</p>
-            <button onClick={handleRestart}>🔀 Shuffle</button>
+            <p className="mastered">🎉 You've mastered all the cards!</p>
+            <button onClick={handleRestart}>🔄 Restart</button>
           </div>
         )}
       </div>
