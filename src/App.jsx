@@ -127,10 +127,10 @@ function App() {
             <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
               <div className={`card-inner ${card.category.toLowerCase()}`}>
                 <div className="front">
-                {card.image ? <img src={`./assets/${card.image}`} alt="Flashcard" className="card-image" /> : null}
-                {<p>{card.question}</p>}
+                  <p>{card.question}</p>
                 </div>
                 <div className="back">
+                  {card.image ? <img src={`${card.image}`} alt="Flashcard" className="card-image" /> : null}
                   <p>{card.answer}</p>
                 </div>
               </div>

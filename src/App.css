@@ -43,14 +43,14 @@ p {
 }
 
 .card {
-  width: 40vw;
+  width: 30%;
   height: 40vh;
   margin: 2em auto;
   /* font-weight: 700; */
   cursor: pointer;
   perspective: 1000px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 /* Add hover effect - smooth scaling and shadow */
@@ -68,7 +68,6 @@ p {
   transition: transform 0.1s;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  /* background: rgba(248, 162, 49, 0.7);  */
 }
 
 .card.flipped .card-inner {
@@ -90,10 +89,12 @@ p {
 
 /* Image Styling */
 .card-image {
+
   max-width: 80%;
   max-height: 70%;
   border-radius: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 5px; */
+  margin-top: 30px;
 }
 
 .card .front, .card .back {
@@ -112,14 +113,14 @@ p {
 
 /* Front and Back Colors */
 .card .front {
-  /* background: linear-gradient(45deg, #ffcc00, #ff6600); */
   color: black;
 }
 
 .card .back {
-  /* background: linear-gradient(45deg, #00ccff, #0066ff); */
   color: black;
   transform: rotateX(180deg);
+  display: flex;
+  flex-direction: column;
 }
 
 input {
@@ -175,4 +176,33 @@ button:disabled {
   /* color: gold; */
   text-shadow: 0 0 10px gold, 0 0 20px yellow;
   /* animation: glow 1.5s infinite alternate; */
+}
+
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  input {
+    font-size: 1rem;
+  }
+  button {
+    font-size: 1rem;
+  }
 }
